@@ -14,8 +14,8 @@ st.set_page_config(
 
 st.title("🗂️ Conversor Excel para CSV") # Título principal da sua aplicação na página
 st.markdown("""
-    Esta ferramenta permite converter facilmente seus arquivos **Excel (.xlsx, .xlsm)**
-    para o formato **CSV (UTF-8 com delimitador de ponto e vírgula `;`)**,
+    Esta ferramenta permite converter facilmente seus arquivos **Excel (.xlsx)**
+    para o formato **CSV (UTF-8)**,
     mantendo a fidelidade de exportação do Excel.
 """)
 st.info("💡 **Dica:** Você pode selecionar e carregar múltiplos arquivos de uma vez para conversão em lote!")
