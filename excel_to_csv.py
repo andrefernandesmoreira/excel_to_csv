@@ -6,13 +6,13 @@ from openpyxl import load_workbook
 
 # --- Configurações da página (DEVE SER A PRIMEIRA COISA APÓS OS IMPORTS) ---
 st.set_page_config(
-    page_title="Conversor Excel para CSV - Andre", # Título que aparece na aba do navegador
+    page_title="Conversor de Excel para CSV - Andre", # Título que aparece na aba do navegador
     page_icon="📄", # Um emoji como ícone da aba
     layout="centered", # 'centered' ou 'wide' - define a largura da página
     initial_sidebar_state="collapsed" # 'auto', 'expanded', 'collapsed' - se houver sidebar
 )
 
-st.title("🗂️ Conversor Excel para CSV") # Título principal da sua aplicação na página
+st.title("🗂️ Conversor de Excel para CSV") # Título principal da sua aplicação na página
 st.markdown("""
     Esta ferramenta permite converter facilmente seus arquivos **Excel (.xlsx)**
     para o formato **CSV (UTF-8)**,
