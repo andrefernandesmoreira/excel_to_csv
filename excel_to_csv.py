@@ -118,7 +118,7 @@ if uploaded_files:
         st.download_button(
             label="📥 Baixar todos os CSVs (ZIP)",
             data=zip_buffer.getvalue(),
-            file_name="cs_convertidos_andre.zip", # Nome do arquivo ZIP final para download
+            file_name="arquivos_convertidos.zip", # Nome do arquivo ZIP final para download
             mime="application/zip",
             help="Clique para baixar um arquivo ZIP contendo todos os seus CSVs convertidos."
         )
