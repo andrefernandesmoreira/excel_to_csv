@@ -7,7 +7,7 @@ from math import isclose
 
 # --- Config da página ---
 st.set_page_config(
-    page_title="Andre",
+    page_title="Excel to CSV - Andre",
     page_icon="📄",
     layout="centered",
     initial_sidebar_state="collapsed"
@@ -15,10 +15,10 @@ st.set_page_config(
 
 st.title("🗂️ Conversor de Excel para CSV")
 st.markdown("""
-Esta ferramenta converte seus **Excel (.xlsx, .xlsm)** para **CSV (UTF-8 BOM; ; \\r\\n)**
+Esta ferramenta converte seus **Excel (.xlsx, .xlsm)** para **CSV (UTF-8)**
 de forma consistente com o **Salvar como → CSV** do Excel, mantendo cabeçalhos, posições de colunas e quebras de linha.
 """)
-st.info("💡 Dica: você pode carregar vários arquivos para conversão em lote.")
+st.info("💡 Dica: você pode carregar vários arquivos de uma só vez para conversão em massa.")
 
 uploaded_files = st.file_uploader(
     "Selecione um ou mais arquivos Excel para converter:",
@@ -136,38 +136,6 @@ if uploaded_files:
             file_name="arquivos_convertidos.zip",
             mime="application/zip"
         )
-
-        # --- Validação opcional ---
-        st.markdown("---")
-        st.subheader("🔎 Validação (opcional): comparar dois CSVs")
-        c1, c2 = st.columns(2)
-        with c1:
-            csv_a = st.file_uploader("CSV A", type=["csv"], key="cmp_a")
-        with c2:
-            csv_b = st.file_uploader("CSV B", type=["csv"], key="cmp_b")
-
-        def normalize_csv_bytes(b: bytes) -> bytes:
-            txt = b.decode("utf-8-sig")
-            txt = txt.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "\r\n")
-            return txt.encode("utf-8")
-
-        if csv_a and csv_b:
-            a_bytes = normalize_csv_bytes(csv_a.read())
-            b_bytes = normalize_csv_bytes(csv_b.read())
-            if a_bytes == b_bytes:
-                st.success("✅ Os dois CSVs são **exatamente iguais**.")
-            else:
-                st.error("❌ Os arquivos **não** são idênticos.")
-                a_text = a_bytes.decode("utf-8").split("\r\n")
-                b_text = b_bytes.decode("utf-8").split("\r\n")
-                max_lines = max(len(a_text), len(b_text))
-                for i in range(max_lines):
-                    line_a = a_text[i] if i < len(a_text) else ""
-                    line_b = b_text[i] if i < len(b_text) else ""
-                    if line_a != line_b:
-                        st.code(f"Linha {i+1}:\nA: {line_a}\nB: {line_b}")
-                        break
-
     else:
         st.info("Nenhum arquivo processado.")
 
