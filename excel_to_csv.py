@@ -15,8 +15,7 @@ st.set_page_config(
 
 st.title("🗂️ Conversor de Excel para CSV")
 st.markdown("""
-Esta ferramenta converte seus **Excel (.xlsx, .xlsm)** para **CSV (UTF-8)**
-de forma consistente com o **Salvar como → CSV** do Excel, mantendo cabeçalhos, posições de colunas e quebras de linha.
+Esta ferramenta permite converter facilmente arquivos **Excel (.xlsx ou .xlsm)** para o **CSV (UTF-8)** de forma simples e precisa, garantindo a mesma fidelidade de conversão do Excel.
 """)
 st.info("💡 Dica: você pode carregar vários arquivos de uma só vez para conversão em massa.")
 
